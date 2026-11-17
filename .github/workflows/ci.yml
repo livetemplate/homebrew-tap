@@ -25,14 +25,20 @@ jobs:
   test:
     name: Test Installation
     runs-on: ${{ matrix.os }}
-    # Only run on main branch after release is available
-    if: github.ref == 'refs/heads/main'
+    # A formula bump lands after its release is published, so the install
+    # test can run on the PR too.
     strategy:
+      fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # The Ubuntu image ships Linuxbrew but leaves it off PATH.
+      - name: Put Homebrew on PATH
+        if: runner.os == 'Linux'
+        run: echo "/home/linuxbrew/.linuxbrew/bin" >> "$GITHUB_PATH"
 
       - name: Install formula
         run: |
