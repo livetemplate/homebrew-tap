@@ -4,24 +4,24 @@
 class Tinkerdown < Formula
   desc "Turn markdown into apps"
   homepage "https://github.com/livetemplate/tinkerdown"
-  version "0.4.1"
+  version "0.4.2"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/livetemplate/tinkerdown/releases/download/v#{version}/tinkerdown-darwin-arm64.tar.gz"
-      sha256 "37431d4f989425b7730c44cee637556856e08ae44f510e7c730f909182746b3f"
+      sha256 "f5cfaa406f042c378d2284d0409ddb55734b47a40753160755983fe8fcdac4c9"
     end
     on_intel do
       url "https://github.com/livetemplate/tinkerdown/releases/download/v#{version}/tinkerdown-darwin-amd64.tar.gz"
-      sha256 "dc0a0185e86fbfb3c76e0d396a810f70291a0f8e4222f82eb16fbebd24d60b71"
+      sha256 "fe3c704601e61e54f50dc4cbeba53eee8c66eaace7bccdf63a820486b00e93ff"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/livetemplate/tinkerdown/releases/download/v#{version}/tinkerdown-linux-amd64.tar.gz"
-      sha256 "51e7f3d205580cd67bada88d01df25a39faf61461e637f343dd834982b52d712"
+      sha256 "eaeb64c0d987d3b9205861276ddd30ac13a62ae64158fd77d38850e7f9b5a362"
     end
   end
 
