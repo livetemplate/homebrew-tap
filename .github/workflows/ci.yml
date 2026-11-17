@@ -9,10 +9,15 @@ on:
 jobs:
   lint:
     name: Lint Formula
-    runs-on: macos-latest
+    # brew style runs the same on Linux, and the macOS queue left this job
+    # without a runner for 15 minutes three times.
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Put Homebrew on PATH
+        run: echo "/home/linuxbrew/.linuxbrew/bin" >> "$GITHUB_PATH"
 
       - name: Run brew audit
         run: |
