@@ -40,9 +40,12 @@ jobs:
         if: runner.os == 'Linux'
         run: echo "/home/linuxbrew/.linuxbrew/bin" >> "$GITHUB_PATH"
 
+      # Homebrew installs only from a tap, not a formula path, so tap this
+      # checkout under the name users tap.
       - name: Install formula
         run: |
-          brew install ./Formula/tinkerdown.rb
+          brew tap livetemplate/tap "$GITHUB_WORKSPACE"
+          brew install livetemplate/tap/tinkerdown
 
       - name: Verify installation
         run: |
